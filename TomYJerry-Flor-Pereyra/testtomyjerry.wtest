@@ -1,0 +1,50 @@
+import tomyjerry.*
+
+method testCaso1() {
+    Tom tom = new Tom()
+    assert tom.velocidad_maxima == 10.0
+}
+
+method testCaso2() {
+    Tom tom = new Tom()
+    Jerry jerry = new Jerry(2)
+    tom.cazarRaton(jerry, 10)  // Distancia arbitraria solo para simular el cazar
+    assert tom.velocidad_maxima == 15.2
+}
+
+method testCaso3() {
+    Tom tom = new Tom()
+    Jerry jerry = new Jerry(2)
+    tom.cazarRaton(jerry, 10)
+    tom.correr(24)
+    assert tom.velocidad_maxima == 14.0
+}
+
+method testCaso4() {
+    Tom tom = new Tom()
+    Nibbles nibbles = new Nibbles()
+    Jerry jerry = new Jerry(2)
+    tom.cazarRaton(jerry, 10)
+    tom.cazarRaton(nibbles, 10)
+    assert tom.velocidad_maxima == 18.7
+}
+
+method testCaso5() {
+    Tom tom = new Tom()
+    Jerry jerry = new Jerry(2)
+    tom.cazarRaton(jerry, 10)
+    jerry.cumpleAnos()  // Jerry ahora pesa 60
+    tom.cazarRaton(jerry, 10)
+    assert tom.velocidad_maxima == 25.9
+}
+
+method testCaso6() {
+    Tom tom = new Tom()
+    Jerry jerry = new Jerry(2)
+    tom.cazarRaton(jerry, 10)
+    tom.correr(24)
+    tom.cazarRaton(jerry, 10)
+    tom.correr(38)
+    assert tom.velocidad_maxima == 24.0
+}
+
